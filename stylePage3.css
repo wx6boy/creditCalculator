@@ -1,0 +1,55 @@
+td, th {
+    width: 15rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  th {
+    background: lightblue;
+    border-color: white;
+  }
+
+  body {
+    padding: 1rem;
+    background: #afdfeb; /* Цвет фона */
+  }
+
+  table {
+      background-color: white;
+  }
+
+  html {
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+.navigation ul{
+  list-style: none; /* Отключение отображения маркеров. */
+  text-align: center;
+}
+.navigation li {
+  display: inline-block;
+  margin-right: 1px; /* создание отступов для того, чтобы не сливались пункты меню. */
+}
+.navigation li a {
+  padding: 15px 20px;  /* Внутри блочные отступы. */
+  background: #fdfdfd; /* Цвет блоков меню. */
+  color: #3f3f3f; /* Цвет текста в блоках меню. */
+  text-decoration: none; /* Устранение подчёркивания ссылок. */
+  position: relative;
+}
+.navigation li a:hover {
+  background: #7cbebe; /* Цвет блока при наведении курсора. */
+  color: #ffffff;  /* Цвет текста при наведении курсора. */
+}
+
+#myTable {
+  margin: 0 auto;
+}
+
+#centered {
+  margin: 0 auto;
+  text-align: center;
+}

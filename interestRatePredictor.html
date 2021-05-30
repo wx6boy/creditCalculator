@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="stylePage2.css" type="text/css"/>
+        <meta charset="utf-8">
+        <title>Credit rate calculating</title>
+        <script src="scriptPage2.js"></script>
+    </head>
+    
+    <body>
+        <header>
+            <div class="navigation">
+                <ul>
+                    <li><A href="overpaymentCalculator.html">График платежей/подсчет переплаты</a></li>
+                    <li><A><b>Предсказание процентной ставки</b></a></li>
+                    <li><A href="tableDownloader.html">Загрузка таблицы платежей</a></li>  
+                    <li><A href="aboutSite.html">О веб-сайте</a></li>  
+                </ul>
+            </div>
+        </header>
+            <div id="centerLayer">
+                <p><label for="creditAmount"><strong>Сумма кредита:&nbsp;&nbsp;</strong></label>
+                <input type="number" step="0.01" min="0" placeholder="0,00" id="creditAmount" required> ₽</p>
+
+                <p><label for="numberOfMonths"><strong>Количество месяцев:&nbsp;&nbsp;</strong></label>
+                <input type="number" min="1" value="1" id="numberOfMonths" required> мес.</p>
+            
+                <p><label for="paymentAmount"><strong>Общая сумма платежа:&nbsp;&nbsp;</strong></label>
+                <input type="number" step="0.01" min="0" placeholder="0,00" id="paymentAmount" required> ₽</p>
+
+                <button type="button" onclick="calculateSecondPart()" class="btn btn-primary">Рассчитать</button>
+                <hr>
+                <p><strong>Процентая ставка ~  </strong><span id="interestRate" ></span></p>
+            </div>
+    </body>
+</html>

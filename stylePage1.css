@@ -1,0 +1,148 @@
+td, th {
+    width: 15rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  th {
+    background: lightblue;
+    border-color: white;
+  }
+
+  body {
+    padding: 1rem;
+    background: #afdfeb; /* Цвет фона */
+  }
+
+  input[type=number] {
+    width: 160px;
+    border-radius: 15px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+
+  input[type=number]:focus {
+    border: 3px solid #555;
+    width: 30%;
+    background-color: lightblue;
+  }
+
+  button {
+    background-color: white; 
+    border: 2px solid #008CBA;
+    color: black; 
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;    
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+
+  #myTable tr:nth-child(even){
+      background-color: #f2f2f2;
+    }
+
+  #myTable tr:hover {
+      background-color: #ddd;
+  }
+
+  html {
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  input[type="radio"] {
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(0deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%),
+                      -webkit-linear-gradient(90deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%);
+    border-radius: 15px;
+    box-shadow: inset 0 1px 1px hsla(0,0%,100%,.8),
+                0 0 0 1px hsla(0,0%,0%,.6),
+                0 2px 3px hsla(0,0%,0%,.6),
+                0 4px 3px hsla(0,0%,0%,.4),
+                0 6px 6px hsla(0,0%,0%,.2),
+                0 10px 6px hsla(0,0%,0%,.2);
+    cursor: pointer;
+    display: inline-block;
+    height: 15px;
+    margin-right: 15px;
+    position: relative;
+    width: 15px;
+    -webkit-appearance: none;
+}
+input[type="radio"]:after {
+    background-color: #444;
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
+                0 1px 1px hsla(0,0%,100%,.8);
+    content: '';
+    display: block;
+    height: 7px;
+    left: 4px;
+    position: relative;
+    top: 4px;
+    width: 7px;
+}
+input[type="radio"]:checked:after {
+    background-color: rgb(85, 176, 206);
+    box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
+                inset 0 2px 2px hsla(0,0%,100%,.4),
+                0 1px 1px hsla(0,0%,100%,.8),
+                0 0 2px 2px darkblue;
+}
+
+.navigation ul{
+  list-style: none; /* Отключение отображения маркеров. */
+  text-align: center;
+}
+.navigation li {
+  display: inline-block;
+  margin-right: 1px; /* создание отступов для того, чтобы не сливались пункты меню. */
+}
+.navigation li a {
+  padding: 15px 20px;  /* Внутри блочные отступы. */
+  background: #fdfdfd; /* Цвет блоков меню. */
+  color: #3f3f3f; /* Цвет текста в блоках меню. */
+  text-decoration: none; /* Устранение подчёркивания ссылок. */
+  position: relative; 
+}
+.navigation li a:hover {
+  background: #7cbebe; /* Цвет блока при наведении курсора. */
+  color: #ffffff;  /* Цвет текста при наведении курсора. */
+}
+
+#centerLayer {
+  position: absolute; /* Абсолютное позиционирование */
+  right: 15%;
+  left: 15%; /* Положение слоя от левого края */
+  top: 15%; /* Положение слоя от верхнего края */
+  background: rgb(252, 252, 252); /* Цвет фона */
+  padding: 40px; /* Поля вокруг текста */
+  overflow: auto; /* Добавление полосы прокрутки */ 
+ }
+ 
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+button.saveButton{
+  position: relative;
+  left: 84.5%;
+}

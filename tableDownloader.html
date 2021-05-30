@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>CSV File to HTML Table</title>
+  <link rel="stylesheet" href="stylePage3.css" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+ <body>
+    <header>
+        <div class="navigation">
+            <ul>
+                <li><A href="overpaymentCalculator.html">График платежей/подсчет переплаты</a></li>
+                <li><A href="interestRatePredictor.html">Предсказание процентной ставки</a></li>
+                <li><A><b>Загрузка таблицы платежей</b></a></li>
+                <li><A href="aboutSite.html">О веб-сайте</a></li>
+            </ul>
+        </div>
+    </header>
+  <div class="container">
+   <div class="table-responsive">
+    <h1 align="center">CSV File to HTML</h1>
+    <br />
+    <script type="text/javascript">
+        function Upload() {
+            var fileUpload = document.getElementById("fileUpload");
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+
+            if (regex.test(fileUpload.value.toLowerCase())) {
+                if (typeof (FileReader) != "undefined") {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        const values = {
+                            x: [],
+                            datasets: []
+                        }
+                        var table = document.createElement("table");
+                        table.setAttribute("id", "myTable")
+                        var rows = e.target.result.split("\n");
+                        values.datasets = rows[0].split(",").slice(1, -1).map(_ => []);
+                        for (var i = 0; i < rows.length; i++) {
+                            var cells = rows[i].split(",");
+                            if (i > 1) {
+                                values.x.push(cells[0])
+                                cells.slice(1, -1).forEach((y, i) => values.datasets[i].push(y));
+                            }
+                            if (cells.length > 1) {
+                                var row = table.insertRow(-1);
+                                for (var j = 0; j < cells.length; j++) {
+                                    var cell = row.insertCell(-1);
+                                    cell.innerHTML = cells[j];
+                                }
+                            }
+                        }
+                        var dvCSV = document.getElementById("dvCSV");
+                        dvCSV.innerHTML = "";
+                        dvCSV.appendChild(table);
+                        const labels = ['Payment','Iterest rate', 'Credit body'];
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        const data = {
+                            labels: values.x,
+                            datasets: values.datasets.map((data, i) => ({
+                                label: labels[i],
+                                data: data,
+                                fill: false,
+                                borderColor: `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`,
+                                tension: 0.1
+                            })),
+                        };
+                        var myChart = new Chart(ctx, {
+                            type: 'line',
+                            data,
+                        });
+
+                    }
+                    reader.readAsText(fileUpload.files[0]);
+                } else {
+                    alert("This browser does not support HTML5.");
+                }
+            } else {
+                alert("Please upload a valid CSV file.");
+            }
+        }
+    </script>
+    <div id="centered">
+       <input type="file" id="fileUpload" />
+       <input type="button" id="upload" value="Upload" onclick="Upload()" />
+    </div>
+    <hr />
+    <div id="dvCSV">
+    </div>
+   <canvas id="myChart" width="0" height="0" style="background-color: #ffffff; margin-top: 50px;"></canvas>
+   </div>
+  </div>
+ </body>
+</html>
